@@ -34,7 +34,9 @@ public class LifeExpectency extends PApplet{
 	public void setup () {
 		size(800,600, OPENGL);
 		map = new UnfoldingMap(this,50,50,700,500, new Microsoft.RoadProvider());
+//		this method : initialize default event for mouse and keyboard interactions
 		MapUtils.createDefaultEventDispatcher(this,map);
+		
 		lifeExpByCountry = loadLifeExpectancyFromCSV("/home/khalil/eclipse/UCSDUnfoldingMaps/data/LifeExpectancyWorldBank.csv");
 		countries = GeoJSONReader.loadData(this,"/home/khalil/eclipse/UCSDUnfoldingMaps/data/countries.geo.json");
 		countryMarkers = MapUtils.createSimpleMarkers(countries);
