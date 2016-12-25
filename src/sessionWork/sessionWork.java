@@ -4,7 +4,7 @@ import processing.core.*;
 
 public class sessionWork extends PApplet {
 
-	private String URL = "http://i.imgur.com/waHb3Ue.jpg";
+	private String URL = "/home/khalil/eclipse/UCSDUnfoldingMaps/build/palmTrees.jpg";
 	private PImage backgroundImg;
 	public void setup (){
 		size(200,200);
