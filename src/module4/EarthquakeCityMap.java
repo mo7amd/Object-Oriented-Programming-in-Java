@@ -46,8 +46,8 @@ public class EarthquakeCityMap extends PApplet {
 	private String earthquakesURL = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.atom";
 	
 	// The files containing city names and info and country names and info
-	private String cityFile = "city-data.json";
-	private String countryFile = "countries.geo.json";
+	private String cityFile = "/home/khalil/eclipse/UCSDUnfoldingMaps/data/city-data.json";
+	private String countryFile = "/home/khalil/eclipse/UCSDUnfoldingMaps/data/countries.geo.json";
 	
 	// The map
 	private UnfoldingMap map;

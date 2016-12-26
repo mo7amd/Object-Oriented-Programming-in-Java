@@ -31,10 +31,8 @@ public class ParseFeed {
 		PointFeature point;
 		
 		for (int i = 0; i < itemXML.length; i++) {
-			
 				// get location and create feature
-				Location location = getLocationFromPoint(itemXML[i]);
-				
+				Location location = getLocationFromPoint(itemXML[i]);	
 				// if successful create PointFeature and add to list
 				if( location != null) {
 					point = new PointFeature(location);
@@ -43,7 +41,6 @@ public class ParseFeed {
 				else {
 					continue;
 				}
-
 				// Sets title if existing
 				String titleStr = getStringVal(itemXML[i], "title");
 				if (titleStr != null) {
@@ -51,7 +48,6 @@ public class ParseFeed {
 					// get magnitude from title
 					point.putProperty("magnitude", Float.parseFloat(titleStr.substring(2, 5)));
 				}
-
 				// Sets depth(elevation) if existing
 				float depthVal = getFloatVal(itemXML[i], "georss:elev");
 				
@@ -226,9 +222,6 @@ public class ParseFeed {
 		
 		
 	}
-	
-	
-
 	/*
 	 * This method is to parse a file containing life expectancy information from
 	 * the world bank.  
@@ -245,15 +238,12 @@ public class ParseFeed {
 	public static HashMap<String, Float> loadLifeExpectancyFromCSV(PApplet p, String fileName) {
 		// HashMap key: country ID and  data: lifeExp at birth
 		HashMap<String, Float> lifeExpMap = new HashMap<String, Float>();
-
 		// get lines of csv file
 		String[] rows = p.loadStrings(fileName);
-		
 		// Reads country name and population density value from CSV row
 		for (String row : rows) {
 			// split row by commas not in quotations
 			String[] columns = row.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
-			
 			// check if there is any life expectancy data from any year, get most recent
 			/*
 			 * EXTENSION: Add code to also get the year the data is from.
@@ -262,21 +252,14 @@ public class ParseFeed {
 			 */
 			//
 			for(int i = columns.length - 1; i > 3; i--) {
-				
 				// check if value exists for year
 				if(!columns[i].equals("..")) {
-					lifeExpMap.put(columns[3], Float.parseFloat(columns[i]));
-					
+					lifeExpMap.put(columns[3], Float.parseFloat(columns[i]));		
 					// break once most recent data is found
 					break;
 				}
-			}
-			
+			}	
 		}
-
 		return lifeExpMap;
 	}
-	
-	
-
 }
