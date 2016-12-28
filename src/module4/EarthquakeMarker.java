@@ -7,7 +7,7 @@ import processing.core.PGraphics;
 /** Implements a visual marker for earthquakes on an earthquake map
  * 
  * @author UC San Diego Intermediate Software Development MOOC team
- * @author Your name here
+ * @author Mohamed khaled khalil
  *
  */
 public abstract class EarthquakeMarker extends SimplePointMarker
@@ -24,8 +24,6 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	// using the thresholds below, or a continuous function
 	// based on magnitude. 
   
-	
-	
 	/** Greater than or equal to this threshold is a moderate earthquake */
 	public static final float THRESHOLD_MODERATE = 5;
 	/** Greater than or equal to this threshold is a light earthquake */
@@ -52,7 +50,7 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 		float magnitude = Float.parseFloat(properties.get("magnitude").toString());
 		properties.put("radius", 2*magnitude );
 		setProperties(properties);
-		this.radius = 1.75f*getMagnitude();
+		this.radius = 2.0f*getMagnitude();
 	}
 	
 
@@ -70,8 +68,7 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 		// OPTIONAL TODO: draw X over marker if within past day		
 		
 		// reset to previous styling
-		pg.popStyle();
-		
+		pg.popStyle();		
 	}
 	
 	// determine color of marker from depth
@@ -80,34 +77,30 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	// You might find the getters below helpful.
 	private void colorDetermine(PGraphics pg) {
 		//TODO: Implement this method
+		if(getDepth()<=70){
+			pg.fill(255,255,0);
+		}
+		else if(getDepth()>70 && getDepth()<=300){
+			pg.fill(0,0,255);
+		}
+		else if(getDepth()>300 && getDepth()<=700){
+			pg.fill(255,0,0);
+		}
 	}
 	
 	
-	/*
-	 * getters for earthquake properties
-	 */
+	//*
+	//* getters for earthquake properties
+	//*************************************
+	public float 	getMagnitude() 	{return Float.parseFloat(getProperty("magnitude").toString());}
 	
-	public float getMagnitude() {
-		return Float.parseFloat(getProperty("magnitude").toString());
-	}
+	public float 	getDepth() 		{return Float.parseFloat(getProperty("depth").toString());	}
 	
-	public float getDepth() {
-		return Float.parseFloat(getProperty("depth").toString());	
-	}
+	public String 	getTitle() 		{return (String) getProperty("title");	}
 	
-	public String getTitle() {
-		return (String) getProperty("title");	
-		
-	}
+	public float 	getRadius() 	{return Float.parseFloat(getProperty("radius").toString());}
 	
-	public float getRadius() {
-		return Float.parseFloat(getProperty("radius").toString());
-	}
-	
-	public boolean isOnLand()
-	{
-		return isOnLand;
-	}
+	public boolean 	isOnLand()		{return isOnLand;}
 	
 	
 }

@@ -6,7 +6,7 @@ import processing.core.PGraphics;
 /** Implements a visual marker for ocean earthquakes on an earthquake map
  * 
  * @author UC San Diego Intermediate Software Development MOOC team
- * @author Your name here
+ * @author Mohamed khaled khalil
  *
  */
 public class OceanQuakeMarker extends EarthquakeMarker {
@@ -30,7 +30,7 @@ public class OceanQuakeMarker extends EarthquakeMarker {
 		// and how it is set in the EarthquakeMarker constructor
 		
 		// TODO: Implement this method
-		
+		pg.rect(x,y,radius,radius);
 	}
 	
 
