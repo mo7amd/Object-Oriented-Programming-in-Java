@@ -10,8 +10,7 @@ import processing.core.PGraphics;
 /** 
  * A class to represent AirportMarkers on a world map.
  *   
- * @author Adam Setters and the UC San Diego Intermediate Software Development
- * MOOC team
+ * @author Adam Setters and the UC San Diego Intermediate Software Development MOOC team
  *
  */
 public class AirportMarker extends CommonMarker {

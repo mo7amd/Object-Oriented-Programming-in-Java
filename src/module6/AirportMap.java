@@ -17,9 +17,8 @@ import processing.core.PApplet;
 
 /** An applet that shows airports (and routes)
  * on a world map.  
- * @author Adam Setters and the UC San Diego Intermediate Software Development
- * MOOC team
- *
+ * @author Adam Setters and the UC San Diego Intermediate Software Development MOOC team
+ * 
  */
 public class AirportMap extends PApplet {
 	
@@ -75,13 +74,13 @@ public class AirportMap extends PApplet {
 			System.out.println(sl.getProperties());
 			
 			//UNCOMMENT IF YOU WANT TO SEE ALL ROUTES
-			//routeList.add(sl);
+			routeList.add(sl);
 		}
 		
 		
 		
 		//UNCOMMENT IF YOU WANT TO SEE ALL ROUTES
-		//map.addMarkers(routeList);
+		map.addMarkers(routeList);
 		
 		map.addMarkers(airportList);
 		
