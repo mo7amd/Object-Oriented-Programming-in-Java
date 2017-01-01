@@ -15,6 +15,7 @@ public class CityMarker extends CommonMarker {
 	
 	public static int TRI_SIZE = 5;  // The size of the triangle marker
 	
+	
 	public CityMarker(Location location) {
 		super(location);
 	}
@@ -42,12 +43,14 @@ public class CityMarker extends CommonMarker {
 		// Save previous drawing style
 		pg.pushStyle();
 		
+		pg.beginDraw();
 		// IMPLEMENT: drawing triangle for each city
 		pg.fill(150, 30, 30);
 		pg.triangle(x, y-TRI_SIZE, x-TRI_SIZE, y+TRI_SIZE, x+TRI_SIZE, y+TRI_SIZE);
-		
 		// Restore previous drawing style
+		
 		pg.popStyle();
+		
 	}
 	
 	/** Show the title of the city if this marker is selected */
@@ -68,6 +71,7 @@ public class CityMarker extends CommonMarker {
 		pg.text(pop, x+3, y - TRI_SIZE -18);
 		
 		pg.popStyle();
+		
 	}
 	
 	private String getCity()

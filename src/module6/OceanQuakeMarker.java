@@ -8,6 +8,7 @@ import processing.core.PGraphics;
  * Author UC San Diego Intermediate Software Development MOOC team
  * @author mohamed khaled khalil
  */
+
 public class OceanQuakeMarker extends EarthquakeMarker {
 	
 	public OceanQuakeMarker(PointFeature quake) {
@@ -17,7 +18,6 @@ public class OceanQuakeMarker extends EarthquakeMarker {
 		isOnLand = false;
 	}
 	
-
 	@Override
 	public void drawEarthquake(PGraphics pg, float x, float y) {
 		//IMPLEMENT: drawing centered square for Ocean earthquakes
@@ -25,7 +25,7 @@ public class OceanQuakeMarker extends EarthquakeMarker {
 		// class to indicate the depth of the earthquake.
 		// Simply draw a centered square.
 		// HINT: Notice the radius variable in the EarthquakeMarker class
-		// and how it is set in the EarthquakeMarker constructor
+		// and how it is set in the EarthquakeMarker constructor	
 		pg.rect(x-radius, y-radius, 2*radius, 2*radius);
 	}
 	

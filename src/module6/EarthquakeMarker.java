@@ -57,9 +57,7 @@ public abstract class EarthquakeMarker extends CommonMarker implements Comparabl
 	
 	// TODO: Add the method:
 	 public int compareTo(EarthquakeMarker marker){
-		 float mag = this.getMagnitude();
-		 float otherMag = marker.getMagnitude();
-		 return mag>otherMag ? -1 : mag==otherMag ? 0 : 1;
+		 return this.getMagnitude()>marker.getMagnitude() ? -1 : this.getMagnitude()==marker.getMagnitude() ? 0 : 1;
 	 }
 	
 	
@@ -67,8 +65,9 @@ public abstract class EarthquakeMarker extends CommonMarker implements Comparabl
 	@Override
 	public void drawMarker(PGraphics pg, float x, float y) {
 		// save previous styling
+	
 		pg.pushStyle();
-			
+
 		// determine color of marker from depth
 		colorDetermine(pg);
 		
@@ -94,13 +93,14 @@ public abstract class EarthquakeMarker extends CommonMarker implements Comparabl
 		
 		// reset to previous styling
 		pg.popStyle();
-		
 	}
 
 	/** Show the title of the earthquake if this marker is selected */
 	public void showTitle(PGraphics pg, float x, float y)
 	{
+		
 		String title = getTitle();
+		
 		pg.pushStyle();
 		
 		pg.rectMode(PConstants.CORNER);

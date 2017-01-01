@@ -2,6 +2,8 @@ package module6;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -19,6 +21,7 @@ import de.fhpotsdam.unfolding.providers.Microsoft;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 import parsing.ParseFeed;
 import processing.core.PApplet;
+import processing.core.PGraphics;
 
 /** EarthquakeCityMap
  * An application with an interactive map displaying earthquake data.
@@ -67,6 +70,7 @@ public class EarthquakeCityMap extends PApplet {
 	private CommonMarker lastSelected;
 	private CommonMarker lastClicked;
 	
+	
 	public void setup() {		
 		// (1) Initializing canvas and map tiles
 		size(900, 700, OPENGL);
@@ -84,10 +88,10 @@ public class EarthquakeCityMap extends PApplet {
 		// FOR TESTING: Set earthquakesURL to be one of the testing files by uncommenting
 		// one of the lines below.  This will work whether you are online or offline
 		//earthquakesURL = "test1.atom";
-		//earthquakesURL = "test2.atom";
+		earthquakesURL = "test2.atom";
 		
 		// Uncomment this line to take the quiz
-		//earthquakesURL = "quiz2.atom";
+//		earthquakesURL = "quiz2.atom";
 		
 		
 		// (2) Reading in earthquake data and geometric properties
@@ -126,15 +130,14 @@ public class EarthquakeCityMap extends PApplet {
 	    map.addMarkers(quakeMarkers);
 	    map.addMarkers(cityMarkers);
 	    
-	    sortAndPrint(20);
+	    sortAndPrint(10);
 	}  // End setup
 	
 	
 	public void draw() {
-		background(0);
+		background(0,255,0);
 		map.draw();
 		addKey();
-		
 	}
 	
 	
@@ -142,7 +145,8 @@ public class EarthquakeCityMap extends PApplet {
 	   private void sortAndPrint(int numToPrint){		   
 		  EarthquakeMarker[] ArrayMarkers = quakeMarkers.toArray(new EarthquakeMarker[quakeMarkers.size()]);
 		  Arrays.sort(ArrayMarkers);
-		  for (int i = 0; i < numToPrint && i < ArrayMarkers.length; i++){
+		  int ActualNumToPrint = numToPrint >= ArrayMarkers.length ? ArrayMarkers.length : numToPrint;
+		  for (int i = 0; i < ActualNumToPrint; i++){
 			System.out.println((i+1) +" ) " + ArrayMarkers[i]);}
 }
 	// and then call that method from setUp
@@ -156,8 +160,7 @@ public class EarthquakeCityMap extends PApplet {
 		// clear the last selection
 		if (lastSelected != null) {
 			lastSelected.setSelected(false);
-			lastSelected = null;
-		
+			lastSelected = null;	
 		}
 		selectMarkerIfHover(quakeMarkers);
 		selectMarkerIfHover(cityMarkers);
